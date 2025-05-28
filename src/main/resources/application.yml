@@ -1,0 +1,10 @@
+spring:
+  grpc:
+    server:
+      port: 28080
+    client:
+      channels:
+        default-channel:
+          address: 172.27.176.46:10821
+server:
+  port: 8085

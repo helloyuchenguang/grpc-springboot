@@ -1,0 +1,31 @@
+syntax = "proto3";
+
+
+option java_multiple_files = true;
+option java_package = "com.ycg.sbgrpc.grpc.user";
+option java_outer_classname = "UserProto";
+option go_package = "proto/user";
+
+package user;
+
+
+message GetUserInfoRequest {
+  int32 user_id = 1;
+}
+
+message GetUserInfoResponse {
+  int32 user_id = 1;
+  string user_name = 2;
+  string email = 3;
+}
+
+service User {
+  // 普通rpc
+  rpc getUserInfo(GetUserInfoRequest) returns (GetUserInfoResponse);
+  // 客户端流式rpc
+  rpc getUserInfoStreamClient(stream GetUserInfoRequest) returns (GetUserInfoResponse);
+  // 服务端流式rpc
+  rpc getUserInfoStreamServer(GetUserInfoRequest) returns (stream GetUserInfoResponse);
+  // 双向流式rpc
+  rpc getUserInfoBidirectional(stream GetUserInfoRequest) returns (stream GetUserInfoResponse);
+}

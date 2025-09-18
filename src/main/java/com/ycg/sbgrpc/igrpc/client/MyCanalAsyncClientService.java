@@ -29,6 +29,7 @@ public class MyCanalAsyncClientService {
             @Override
             public void onNext(EventTableRowReply value) {
                 log.info(" {} client-异步next-接收: {}", ++count, LocalDateTime.now());
+//                System.out.println("client-异步next-接收: " + LocalDateTime.now() + " - " +  ++count );
             }
 
             @Override

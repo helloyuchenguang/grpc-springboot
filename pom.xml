@@ -32,6 +32,9 @@
         <protobuf-java.version>4.30.2</protobuf-java.version>
         <spring-grpc.version>0.11.0</spring-grpc.version>
         <os.detected.classifier>windows-x86_64</os.detected.classifier>
+        <disruptor.version>4.0.0</disruptor.version>
+        <jox.flows.version>0.4.1</jox.flows.version>
+        <guava.version>33.4.8-jre</guava.version>
     </properties>
 
     <dependencies>
@@ -65,6 +68,24 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.lmax</groupId>
+            <artifactId>disruptor</artifactId>
+            <version>${disruptor.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.softwaremill.jox</groupId>
+            <artifactId>flows</artifactId>
+            <version>${jox.flows.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>${guava.version}</version>
         </dependency>
     </dependencies>
 

@@ -16,9 +16,9 @@ public class JoxTest {
     public void channels() throws InterruptedException {
         var start = System.currentTimeMillis();
         // 创建三个 channel，缓冲区大小用默认
-        var ticker = Channel.<Integer>newBufferedDefaultChannel();
-        var ch2 = Channel.<Integer>newBufferedDefaultChannel();
-        var ch3 = Channel.<Integer>newBufferedDefaultChannel();
+        var ticker = Channel.<Integer>newBufferedChannel(1000);
+        var ch2 = Channel.<Integer>newBufferedChannel(1000);
+        var ch3 = Channel.<Integer>newBufferedChannel(1000);
 
         // ch1 的生产者：每隔 0.1 秒往 ch1 里发送数字
         int count = 1_000_000;
@@ -74,10 +74,10 @@ public class JoxTest {
                 // 某个 channel 在 select 时关闭了，移除它，继续下一轮
                 // 移除已关闭的 channel
                 channels.removeIf(Channel::isClosedForSend);
-                if (cc == ticker) {
-                    log("ch1 主动关闭了!");
-                    return;
-                }
+//                if (cc == ticker) {
+//                    log("ch1 主动关闭了!");
+//                    return;
+//                }
             }
         }
 

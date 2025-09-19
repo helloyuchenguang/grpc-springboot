@@ -30,7 +30,7 @@ public class TickerTest {
             }
         });
 
-        Duration timeout = Duration.ofSeconds(3);
+        var timeout = Duration.ofSeconds(3);
         // 在主线程中接收 ticker 信号
         try {
             while (true) {

@@ -63,7 +63,7 @@ public class JoxTest {
                 log("ch3 生产者退出");
             }
         });
-
+        long total = 0;
         var channels = Lists.newArrayList(ticker, ch2, ch3);
         while (!channels.isEmpty()) {
             // 这里不能直接用 Select.select，因为只要有一个 channel done 就会抛异常
@@ -79,9 +79,10 @@ public class JoxTest {
 //                    return;
 //                }
             }
+            total++;
         }
 
-        log("所有 channel 都已 done，退出循环");
+        log("所有 channel 都已 done，退出循环" + total);
         log("耗时: " + (System.currentTimeMillis() - start) + " ms");
     }
 
@@ -94,6 +95,6 @@ public class JoxTest {
     }
 
     public static void log(String obj) {
-        System.out.println(LocalDateTime.now() + ": " + obj);
+        IO.println(LocalDateTime.now() + ": " + obj);
     }
 }
